@@ -1,0 +1,12 @@
+# Carpetas temporales y cachés de CodeLite / Clang
+.cache/
+.codelite/
+.ctagsd/
+compile_commands.json
+
+# Archivos de compilación y ejecutables (Debug)
+**/Debug/
+*.exe
+*.o
+*.d
+*.mk
