@@ -43,6 +43,24 @@ Persona Cola::eliminar()
     return v;
 }
 
+void Cola::vaciarCola()
+{
+    pnodoCola nodoActual;
+    pnodoCola nodoSiguiente;
+
+    nodoActual = primero;
+    nodoSiguiente = nullptr;
+    while (nodoActual != nullptr)
+    {
+        nodoSiguiente = nodoActual->siguiente;
+        delete nodoActual;
+        nodoActual = nodoSiguiente;
+    }
+    primero = nullptr;
+    ultimo = nullptr;
+    longitud = 0;
+}
+
 int Cola::mostrarCantidad()
 {
     return longitud;
@@ -60,7 +78,7 @@ void Cola::mostrar()
         if (nodo->persona.getEstado())
             cout << "apendicitis, su ID es: " << nodo->persona.getId() << " y su habitacion asignada es: " << nodo->persona.getHabitacion() <<endl;
         else
-            cout << "hernias, su ID es: " << nodo->persona.getId() << "y su habitacion asignada es: " << nodo->persona.getHabitacion() <<endl;
+            cout << "hernias, su ID es: " << nodo->persona.getId() << " y su habitacion asignada es: " << nodo->persona.getHabitacion() <<endl;
         nodo = nodo->siguiente;
     }
 }

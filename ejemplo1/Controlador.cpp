@@ -37,22 +37,16 @@ int Controlador::pacientesEnSalaD()
 }
 
 
-void Controlador::pacientesEnListaApendicitis()
+int Controlador::pacientesEnListaApendicitis()
 {
-    cout << "Sala A:" <<endl;
-    colaA.mostrar();
-    cout << endl;
-    cout << "Sala B:" <<endl;
-    colaB.mostrar();
+    return listaApendicitis.cantidad();
 }
-void Controlador::pacientesEnListaHernias()
+
+int Controlador::pacientesEnListaHernias()
 {
-    cout << "Sala C:" <<endl;
-    colaC.mostrar();
-    cout << endl;
-    cout << "Sala D:" <<endl;
-    colaD.mostrar();
+    return listaHernias.cantidad();
 }
+
 //void Controlador::pacientesEnArbol();
 
 void Controlador::generar12Pacientes()
@@ -136,8 +130,61 @@ void Controlador::borraPacientesColas()
         colaD.eliminar();
     }
 }
-//void Controlador::enlistarPacientes();
-//void Controlador::muestraPacientesApendicitis();
-//void Controlador::muestraPacientesHernias();
-//void Controlador::buscarPacientes();
-//void Controlador::reiniciar();
+
+void Controlador::enlistarPacientes()
+{
+    while (colaA.mostrarCantidad() || colaB.mostrarCantidad())
+    {
+        if (colaA.mostrarCantidad())
+            listaApendicitis.insertar(colaA.eliminar());
+        if (colaB.mostrarCantidad())
+            listaApendicitis.insertar(colaB.eliminar());
+    }
+    while (colaC.mostrarCantidad() || colaD.mostrarCantidad())
+    {
+        if (colaC.mostrarCantidad())
+            listaHernias.insertar(colaC.eliminar());
+        if (colaD.mostrarCantidad())
+            listaHernias.insertar(colaD.eliminar());
+    }
+    listaApendicitis.ordenar();
+    listaHernias.ordenar();
+}
+
+void Controlador::enlistarPacientes2()
+{
+    while (colaA.mostrarCantidad() > 0)
+        listaApendicitis.insertarOrdenado(colaA.eliminar());
+    while (colaB.mostrarCantidad() > 0)
+        listaApendicitis.insertarOrdenado(colaB.eliminar());
+    while (colaC.mostrarCantidad() > 0)
+        listaHernias.insertarOrdenado(colaC.eliminar());
+    while (colaD.mostrarCantidad() > 0)
+        listaHernias.insertarOrdenado(colaD.eliminar());
+}
+
+void Controlador::muestraPacientesApendicitis()
+{
+    listaApendicitis.mostrar();
+}
+
+void Controlador::muestraPacientesHernias()
+{
+    listaHernias.mostrar();
+}
+
+void Controlador::buscarPacientes()
+{
+    listaApendicitis.buscarMenor();
+    listaHernias.buscarMayor();
+}
+void Controlador::reiniciar()
+{
+    listaApendicitis.vaciarLista();
+    listaHernias.vaciarLista();
+    colaA.vaciarCola();
+    colaB.vaciarCola();
+    colaC.vaciarCola();
+    colaD.vaciarCola();
+    pila.vaciarPila();
+}

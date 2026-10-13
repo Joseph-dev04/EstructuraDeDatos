@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 		cout << "\n\t----------------------------------------------------------------------\n";
 		cout << "\tPacientes en la pila -> " << controlador.pacientesEnPila() << "\n\tPacientes en las colas:\n \t\tSala A-> " << controlador.pacientesEnSalaA() << "\tSala B-> "
              << controlador.pacientesEnSalaB() << "\tSala C-> " << controlador.pacientesEnSalaC() << "\tSala D-> " << controlador.pacientesEnSalaD()
-             << " \n\tPacientes en las listas:\n \t\tQuirofano Apendicitis-> " << 0 /*controlador.pacientesEnListaApendicitis()*/ << "\tQuirofano hernias-> " << 0 /*controlador.pacientesEnListaHernias()*/
+             << " \n\tPacientes en las listas:\n \t\tQuirofano Apendicitis-> " <<  controlador.pacientesEnListaApendicitis() << "\tQuirofano hernias-> " << controlador.pacientesEnListaHernias()
              << "\n\tPacientes en el arbol -> " << 0 /*controlador.pacientesEnArbol()*/ << "\n";
         cout << "\t----------------------------------------------------------------------\n\n";
 
@@ -71,19 +71,19 @@ int main(int argc, char** argv)
 			controlador.borraPacientesColas();
 			break;
 		case 'H':
-			// controlador.enlistarPacientes();
+			 controlador.enlistarPacientes();
 			break;
 		case 'I':
-			// controlador.muestraPacientesApendicitis();
+			 controlador.muestraPacientesApendicitis();
 			break;
 		case 'J':
-			// controlador.muestraPacientesHernias();
+			 controlador.muestraPacientesHernias();
 			break;
 		case 'K':
-			// controlador.buscarPacientes();
+			 controlador.buscarPacientes();
 			break;
 		case 'L':
-			// controlador.reiniciar();
+			 controlador.reiniciar();
 			break;
 		case 'M':
 			//...;

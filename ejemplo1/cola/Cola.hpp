@@ -12,6 +12,7 @@ class Cola
         void insertar(Persona p);
         Persona eliminar();
         void mostrar();
+        void vaciarCola();
         int mostrarCantidad();
     
     private:

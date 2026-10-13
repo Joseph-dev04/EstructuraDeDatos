@@ -59,6 +59,23 @@ void Pila::mostrar()
     }
 }
 
+void Pila::vaciarPila()
+{
+    pnodoPila nodoActual;
+    pnodoPila nodoSiguiente;
+
+    nodoActual = ultimo;
+    nodoSiguiente = nullptr;
+    while (nodoActual != nullptr)
+    {
+        nodoSiguiente = nodoActual->siguiente;
+        delete nodoActual;
+        nodoActual = nodoSiguiente;
+    }
+    ultimo = nullptr;
+    longitud = 0;
+}
+
 Pila::~Pila()
 {
     while (ultimo)

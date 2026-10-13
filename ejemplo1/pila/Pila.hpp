@@ -11,6 +11,7 @@ class Pila
         Persona eliminar();
         Persona cima();
         void mostrar();
+        void vaciarPila();
         int mostrarCantidad();
     private:
         int longitud;
